@@ -8,14 +8,14 @@ export function HeroVideoSection() {
           className="block dark:hidden"
           animationStyle="from-center"
           videoSrc="https://player.vimeo.com/video/394623715"
-          thumbnailSrc="https://weflex.am/wp-content/uploads/2020/02/Thumb.png"
+          thumbnailSrc="https://i.vimeocdn.com/video/860567331-3b6ee9bd78803193f0b8d542ad6a5dd8636006ff44b43f4c27c5a25d900f5b4e-d?mw=3900&mh=1120&q=70"
           thumbnailAlt="Hero Video"
         />
         <HeroVideoDialog
           className="hidden dark:block"
           animationStyle="from-center"
           videoSrc="https://player.vimeo.com/video/394623715"
-          thumbnailSrc="https://weflex.am/wp-content/uploads/2020/02/Thumb.png"
+          thumbnailSrc="https://i.vimeocdn.com/video/860567331-3b6ee9bd78803193f0b8d542ad6a5dd8636006ff44b43f4c27c5a25d900f5b4e-d?mw=3900&mh=1120&q=70"
           thumbnailAlt="Hero Video"
         />
       </div>
