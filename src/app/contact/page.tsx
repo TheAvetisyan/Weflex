@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import {
   Mail,
+  Phone,
   Send,
   Clock,
   Instagram,
@@ -16,7 +17,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 
-
 export default function ContactPage() {
   const [formState, setFormState] = useState({
     name: "",
@@ -28,7 +28,7 @@ export default function ContactPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormState({
       ...formState,
@@ -64,8 +64,8 @@ export default function ContactPage() {
                 Send us a message
               </h2>
               <p className="text-gray-500 dark:text-gray-400 mt-2">
-                Fill out the form below and we&quot;ll get back to you as soon as
-                possible.
+                Fill out the form below and we&quot;ll get back to you as soon
+                as possible.
               </p>
             </div>
 
@@ -77,7 +77,8 @@ export default function ContactPage() {
                   </div>
                   <h3 className="text-xl font-semibold">Message Sent!</h3>
                   <p className="text-gray-500 dark:text-gray-400">
-                    Thank you for reaching out. We&quot;ll get back to you shortly.
+                    Thank you for reaching out. We&quot;ll get back to you
+                    shortly.
                   </p>
                 </div>
               </Card>
@@ -180,6 +181,37 @@ export default function ContactPage() {
               <Card className="p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800">
                 <div className="flex items-start space-x-4">
                   <div className="h-10 w-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
+                    <Phone className="h-5 w-5 text-gray-700 dark:text-gray-300" />
+                  </div>
+                  <div>
+                    <h3 className="font-medium">Phone</h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                      Call us directly
+                    </p>
+                    <div className="space-x-1 flex md:flex-row flex-col items-center">
+                      <Link
+                        href="tel:+17472739820"
+                        className="text-gray-900 dark:text-gray-100 hover:underline  block"
+                      >
+                        +1 (747) 273-9820
+                      </Link>
+                      <span className="text-gray-500 dark:text-gray-400 mx-2">
+                        or
+                      </span>
+                      <Link
+                        href="tel:+37441222676"
+                        className="text-gray-900 dark:text-gray-100 hover:underline  block"
+                      >
+                        +374 41 222676
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800">
+                <div className="flex items-start space-x-4">
+                  <div className="h-10 w-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
                     <Mail className="h-5 w-5 text-gray-700 dark:text-gray-300" />
                   </div>
                   <div>
@@ -209,13 +241,7 @@ export default function ContactPage() {
                     </p>
                     <div className="mt-2 space-y-1">
                       <p className="text-gray-900 dark:text-gray-100 text-sm">
-                        Monday - Friday: 9:00 AM - 6:00 PM
-                      </p>
-                      <p className="text-gray-900 dark:text-gray-100 text-sm">
-                        Saturday: Closed
-                      </p>
-                      <p className="text-gray-900 dark:text-gray-100 text-sm">
-                        Sunday: Closed
+                        Monday - Sunday: 9:00 AM - 6:00 PM
                       </p>
                     </div>
                   </div>

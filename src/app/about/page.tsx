@@ -287,7 +287,7 @@ export default function AboutUs() {
 
             <motion.div className="space-y-12" variants={staggerChildren}>
               <motion.div variants={fadeInVariants}>
-                <Link href="tel:+1(747)273-9820" className="group block">
+                <Link href="tel:+17472739820" className="group block">
                   <div className="flex items-center gap-6 mb-2">
                     <motion.div
                       className="w-16 h-16 rounded-full border border-muted flex items-center justify-center"
@@ -307,6 +307,9 @@ export default function AboutUs() {
                   </div>
                   <p className="text-muted-foreground font-light text-lg ml-[5.5rem] group-hover:text-foreground transition-colors duration-300">
                     +1 (747) 273-9820
+                  </p>
+                  <p className="text-muted-foreground font-light text-lg ml-[5.5rem] group-hover:text-foreground transition-colors duration-300">
+                    +374 41 222676
                   </p>
                 </Link>
               </motion.div>
