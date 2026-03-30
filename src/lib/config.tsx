@@ -216,6 +216,13 @@ export const siteConfig = {
         logo_dark: "/company_logos/automatr_white.png",
         link: "/automatr",
       },
+      {
+        id: 5,
+        name: "Avenue Des Fleurs",
+        logo: "/company_logos/avenue.png",
+        logo_dark: "/company_logos/avenue_white.png",
+        link: "/avenue-des-fleurs",
+      },
     ],
   },
   featureSection: {
