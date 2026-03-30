@@ -34,16 +34,20 @@ export const siteConfig = {
   cta: "Get Started",
   url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
   keywords: [
-    "AI Calendar",
-    "Smart Scheduling",
-    "Productivity",
-    "Time Management",
+    "IT Company",
+    "Software Development",
+    "E-commerce Solutions",
+    "Mobile App Development",
+    "Custom Software Development",
+    "System Integrations",
+    "Real-Time Business Insights",
+    "Workflow Automation",
+    "Custom Software Development",
   ],
   links: {
-    email: "support@calai.app",
-    discord: "https://discord.gg/calaiapp",
-    github: "https://github.com/calaiapp",
-    instagram: "https://instagram.com/calaiapp",
+    email: "info@weflex.am",
+    facebook: "https://www.facebook.com/weflex.am",
+    instagram: "https://www.instagram.com/weflex.am/",
   },
   nav: {
     links: [
