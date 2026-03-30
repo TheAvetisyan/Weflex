@@ -223,6 +223,13 @@ export const siteConfig = {
         logo_dark: "/company_logos/avenue_white.png",
         link: "/avenue-des-fleurs",
       },
+      {
+        id: 6,
+        name: "Enova Logix",
+        logo: "/company_logos/enova.png",
+        logo_dark: "/company_logos/enova_white.png",
+        link: "/enova-logix",
+      },
     ],
   },
   featureSection: {

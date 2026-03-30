@@ -16,6 +16,7 @@ export async function GET(): Promise<Response> {
       { slug: "gazar", updatedAt: "2025-06-30" },
       { slug: "creator-deck", updatedAt: "2025-06-30" },
       { slug: "avenue-des-fleurs", updatedAt: "2026-03-30" },
+      { slug: "enova-logix", updatedAt: "2026-03-30" },
     ];
   
     const staticUrls = staticRoutes.map((route) => `
