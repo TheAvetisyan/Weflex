@@ -230,6 +230,13 @@ export const siteConfig = {
         logo_dark: "/company_logos/enova_white.png",
         link: "/enova-logix",
       },
+      {
+        id: 7,
+        name: "Flowers Theory",
+        logo: "/company_logos/flowers_theory.png",
+        logo_dark: "/company_logos/flowers_theory_white.png",
+        link: "/flowers-theory",
+      },
     ],
   },
   featureSection: {
