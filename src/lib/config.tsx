@@ -214,7 +214,7 @@ export const siteConfig = {
         id: 4,
         name: "Company 5",
         logo: "/company_logos/automatr.svg",
-        logo_dark: "/company_logos/automatr_white.svg",
+        logo_dark: "/company_logos/automatr.svg",
         link: "/automatr",
       },
       {
