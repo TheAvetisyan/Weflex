@@ -37,14 +37,14 @@ export default function FlowersTheoryComponent() {
               </div>
 
               <Image
-                src="/company_logos/flowers_theory.png"
+                src="/company_logos/flowers-theory.webp"
                 alt="Flowers Theory"
                 width={420}
                 height={120}
                 className="dark:hidden h-auto w-auto max-h-24 object-contain"
               />
               <Image
-                src="/company_logos/flowers_theory_white.png"
+                src="/company_logos/flowers-theory.webp"
                 alt="Flowers Theory"
                 width={420}
                 height={120}

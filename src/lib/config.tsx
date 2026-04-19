@@ -18,7 +18,7 @@ export const Highlight = ({
     <span
       className={cn(
         "p-1 py-0.5 font-medium dark:font-semibold text-secondary",
-        className
+        className,
       )}
     >
       {children}
@@ -192,29 +192,29 @@ export const siteConfig = {
       {
         id: 1,
         name: "Company 1",
-        logo: "/company_logos/PizzaAyo.png",
-        logo_dark: "/company_logos/PizzaAyo_white.png",
+        logo: "/company_logos/pizza-ayo.svg",
+        logo_dark: "/company_logos/pizza-ayo.svg",
         link: "/pizza-ayo",
       },
       {
         id: 2,
         name: "Company 2",
-        logo: "/company_logos/Gazar.png",
-        logo_dark: "/company_logos/Gazar_white.png",
+        logo: "/company_logos/gazar-am.svg",
+        logo_dark: "/company_logos/gazar-am.svg",
         link: "/gazar",
       },
       {
         id: 3,
         name: "Company 4",
-        logo: "/company_logos/CD.png",
-        logo_dark: "/company_logos/CD_white.png",
+        logo: "/company_logos/creator-deck.png",
+        logo_dark: "/company_logos/creator-deck.png",
         link: "/creator-deck",
       },
       {
         id: 4,
         name: "Company 5",
-        logo: "/company_logos/automatr.png",
-        logo_dark: "/company_logos/automatr_white.png",
+        logo: "/company_logos/automatr.svg",
+        logo_dark: "/company_logos/automatr_white.svg",
         link: "/automatr",
       },
       {
@@ -227,15 +227,15 @@ export const siteConfig = {
       {
         id: 6,
         name: "Enova Logix",
-        logo: "/company_logos/enova.png",
-        logo_dark: "/company_logos/enova_white.png",
+        logo: "/company_logos/enova-logix.webp",
+        logo_dark: "/company_logos/enova-logix.webp",
         link: "/enova-logix",
       },
       {
         id: 7,
         name: "Flowers Theory",
-        logo: "/company_logos/flowers_theory.png",
-        logo_dark: "/company_logos/flowers_theory_white.png",
+        logo: "/company_logos/flowers-theory.webp",
+        logo_dark: "/company_logos/flowers-theory.webp",
         link: "/flowers-theory",
       },
     ],
@@ -264,8 +264,7 @@ export const siteConfig = {
       {
         id: 3,
         title: "We Build and Launch",
-        content:
-          "Rapid iterations, tested releases, and scalable delivery.",
+        content: "Rapid iterations, tested releases, and scalable delivery.",
         image:
           "https://img.freepik.com/premium-photo/medium-shot-man-working-computer_23-2150287696.jpg?uid=P1027369&ga=GA1.1.539549631.1725627705&semt=ais_hybrid&w=740",
       },
@@ -698,7 +697,7 @@ export const siteConfig = {
           "Secure checkout (Stripe, PayPal, IDRAM, Telcell, etc.)",
           "Easy-to-use admin dashboard",
           "Shipping, tax & inventory system",
-         
+
           "1-month post-launch support",
         ],
         description:

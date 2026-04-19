@@ -32,14 +32,14 @@ export default function EnovaLogixComponent() {
               </div>
 
               <Image
-                src="/company_logos/enova.png"
+                src="/company_logos/enova-logix.webp"
                 alt="Enova Logix"
                 width={380}
                 height={120}
                 className="dark:hidden h-auto w-auto max-h-20 object-contain"
               />
               <Image
-                src="/company_logos/enova_white.png"
+                src="/company_logos/enova-logix.webp"
                 alt="Enova Logix"
                 width={380}
                 height={120}
@@ -78,13 +78,26 @@ export default function EnovaLogixComponent() {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              transition={{
+                duration: 0.8,
+                delay: 0.2,
+                ease: [0.22, 1, 0.36, 1],
+              }}
               className="grid grid-cols-2 gap-4"
             >
               {[
-                { label: "Fully Insured", icon: <ShieldCheck className="w-6 h-6" /> },
-                { label: "On-Time Delivery", icon: <Clock className="w-6 h-6" /> },
-                { label: "Licensed & Bonded", icon: <CheckCircle2 className="w-6 h-6" /> },
+                {
+                  label: "Fully Insured",
+                  icon: <ShieldCheck className="w-6 h-6" />,
+                },
+                {
+                  label: "On-Time Delivery",
+                  icon: <Clock className="w-6 h-6" />,
+                },
+                {
+                  label: "Licensed & Bonded",
+                  icon: <CheckCircle2 className="w-6 h-6" />,
+                },
                 { label: "24/7 Support", icon: <Truck className="w-6 h-6" /> },
               ].map((item) => (
                 <div
@@ -116,7 +129,9 @@ export default function EnovaLogixComponent() {
                 className="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-black p-6"
               >
                 <p className="text-3xl font-bold">{stat.k}</p>
-                <p className="text-gray-600 dark:text-gray-400 mt-2">{stat.v}</p>
+                <p className="text-gray-600 dark:text-gray-400 mt-2">
+                  {stat.v}
+                </p>
               </div>
             ))}
           </div>
@@ -151,10 +166,20 @@ export default function EnovaLogixComponent() {
             <div className="rounded-2xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-950 p-8 space-y-4">
               <h3 className="text-2xl font-semibold">Why Choose Enova Logix</h3>
               <ul className="space-y-3 text-gray-700 dark:text-gray-300">
-                <li>Reliable nationwide vehicle transport services across all 50 states.</li>
-                <li>No upfront payments and transparent, market-based pricing.</li>
-                <li>Certified and insured carrier network with real-time updates.</li>
-                <li>Dedicated specialists focused on fast response and clear communication.</li>
+                <li>
+                  Reliable nationwide vehicle transport services across all 50
+                  states.
+                </li>
+                <li>
+                  No upfront payments and transparent, market-based pricing.
+                </li>
+                <li>
+                  Certified and insured carrier network with real-time updates.
+                </li>
+                <li>
+                  Dedicated specialists focused on fast response and clear
+                  communication.
+                </li>
               </ul>
               <Link
                 href="https://enovalogix.com/"

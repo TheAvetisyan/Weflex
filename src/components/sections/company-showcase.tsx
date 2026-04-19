@@ -10,7 +10,9 @@ export function CompanyShowcase() {
       id="company"
       className="flex flex-col items-center justify-center gap-10 py-10 pt-20 w-full relative px-6"
     >
-      <p className="text-muted-foreground font-medium border-b border-[#ef233c]">Recent partners</p>
+      <p className="text-muted-foreground font-medium border-b border-[#ef233c]">
+        Recent partners
+      </p>
       <div className="grid w-full max-w-7xl grid-cols-2 md:grid-cols-4 overflow-hidden border-y border-border items-center justify-center z-20">
         {companyShowcase.ActiveCompanyLogos.map((logo) => (
           <Link
@@ -22,10 +24,9 @@ export function CompanyShowcase() {
               <Image
                 src={logo.logo}
                 alt="logo"
-                width={100}
-                height={100}
-                className="max-h-full max-w-full object-contain"
-                style={{ width: "auto", height: "auto" }}
+                width={300}
+                height={300}
+                className="max-h-full aspect-auto max-w-full w-36 h-24  object-contain"
               />
             </div>
             <div className="transition-all hidden dark:flex duration-200 [cubic-bezier(0.165, 0.84, 0.44, 1)] translate-y-0 group-hover:-translate-y-4 duration-300 flex items-center justify-center w-full h-full">
@@ -46,7 +47,9 @@ export function CompanyShowcase() {
           </Link>
         ))}
       </div>
-      <p className="text-muted-foreground font-medium border-b border-[#ef233c]">Also worked with</p>
+      <p className="text-muted-foreground font-medium border-b border-[#ef233c]">
+        Also worked with
+      </p>
       <div className="grid w-full max-w-7xl grid-cols-2 md:grid-cols-4 overflow-hidden border-y border-border items-center justify-center z-20">
         {companyShowcase.companyLogos.map((logo) => (
           <div
