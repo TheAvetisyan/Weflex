@@ -26,20 +26,19 @@ export function FirstBentoAnimation() {
   const ref = useRef(null);
   const isInView = useInView(ref);
   const [shouldAnimate, setShouldAnimate] = useState(false);
+  const [prevIsInView, setPrevIsInView] = useState(isInView);
 
-  useEffect(() => {
-    let timeoutId: NodeJS.Timeout;
-    if (isInView) {
-      timeoutId = setTimeout(() => {
-        setShouldAnimate(true);
-      }, 1000);
-    } else {
+  if (isInView !== prevIsInView) {
+    setPrevIsInView(isInView);
+    if (!isInView) {
       setShouldAnimate(false);
     }
+  }
 
-    return () => {
-      if (timeoutId) clearTimeout(timeoutId);
-    };
+  useEffect(() => {
+    if (!isInView) return;
+    const timeoutId = setTimeout(() => setShouldAnimate(true), 1000);
+    return () => clearTimeout(timeoutId);
   }, [isInView]);
 
   return (

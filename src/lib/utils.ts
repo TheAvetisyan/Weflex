@@ -11,12 +11,14 @@ export const getRGBA = (
   cssColor: React.CSSProperties["color"],
   fallback: string = "rgba(180, 180, 180)",
 ): string => {
-  if (typeof window === "undefined") return fallback;
   if (!cssColor) return fallback;
 
   try {
-    // Handle CSS variables
+    // CSS variables need computed styles — only available in the browser
     if (typeof cssColor === "string" && cssColor.startsWith("var(")) {
+      if (typeof window === "undefined") {
+        return fallback;
+      }
       const element = document.createElement("div");
       element.style.color = cssColor;
       document.body.appendChild(element);
@@ -25,7 +27,8 @@ export const getRGBA = (
       return Color.formatRGBA(Color.parse(computedColor));
     }
 
-    return Color.formatRGBA(Color.parse(cssColor));
+    // Hex / rgb / hsl / named colors: parse the same on server and client (no hydration mismatch)
+    return Color.formatRGBA(Color.parse(String(cssColor)));
   } catch (e) {
     console.error("Color parsing failed:", e);
     return fallback;

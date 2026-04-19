@@ -111,21 +111,22 @@ function ReasoningContent({
   const contentRef = useRef<HTMLDivElement>(null);
   const innerRef = useRef<HTMLDivElement>(null);
   const { isOpen } = useReasoningContext();
+  const [maxHeight, setMaxHeight] = useState<string>("0px");
 
   useEffect(() => {
     if (!contentRef.current || !innerRef.current) return;
 
-    const observer = new ResizeObserver(() => {
-      if (contentRef.current && innerRef.current && isOpen) {
-        contentRef.current.style.maxHeight = `${innerRef.current.scrollHeight}px`;
+    const updateMaxHeight = () => {
+      if (innerRef.current && isOpen) {
+        setMaxHeight(`${innerRef.current.scrollHeight}px`);
+      } else {
+        setMaxHeight("0px");
       }
-    });
+    };
 
+    const observer = new ResizeObserver(updateMaxHeight);
     observer.observe(innerRef.current);
-
-    if (isOpen) {
-      contentRef.current.style.maxHeight = `${innerRef.current.scrollHeight}px`;
-    }
+    updateMaxHeight();
 
     return () => observer.disconnect();
   }, [isOpen]);
@@ -138,7 +139,7 @@ function ReasoningContent({
         className
       )}
       style={{
-        maxHeight: isOpen ? contentRef.current?.scrollHeight : "0px",
+        maxHeight,
       }}
       {...props}
     >

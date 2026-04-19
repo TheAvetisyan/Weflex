@@ -191,7 +191,7 @@ export default function ContactPage() {
                     <div className="space-x-1 flex md:flex-row flex-col items-center">
                       <Link
                         href="tel:+17472739820"
-                        className="text-gray-900 dark:text-gray-100 hover:underline  block"
+                        className="text-gray-900 dark:text-gray-100 hover:underline block"
                       >
                         +1 (747) 273-9820
                       </Link>

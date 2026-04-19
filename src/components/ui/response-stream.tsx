@@ -254,7 +254,9 @@ function useTextStream({
   }, [textStream, isComplete, processStringTypewriter]);
 
   useEffect(() => {
-    startStreaming();
+    queueMicrotask(() => {
+      startStreaming();
+    });
 
     return () => {
       if (animationRef.current) {

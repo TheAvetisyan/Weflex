@@ -23,14 +23,16 @@ export function FooterSection() {
                 width={90}
                 height={80}
                 alt="logo"
-                className="hidden dark:block"
+                className="hidden h-auto w-auto dark:block"
+                style={{ width: "auto", height: "auto" }}
               />
               <Image
                 src="/logo-white.png"
                 width={90}
                 height={80}
                 alt="logo"
-                className="block dark:hidden"
+                className="block h-auto w-auto dark:hidden"
+                style={{ width: "auto", height: "auto" }}
               />
             </Link>
             <p className="max-w-xs text-sm text-muted-foreground">

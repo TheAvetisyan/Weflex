@@ -3,7 +3,7 @@
 import { colorWithOpacity, getRGBA } from "@/lib/utils";
 import NumberFlow from "@number-flow/react";
 import { motion, useInView } from "motion/react";
-import { CSSProperties, useCallback, useEffect, useRef, useState } from "react";
+import { CSSProperties, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 interface LineChartProps {
   data: number[];
@@ -70,25 +70,27 @@ export function LineChart({
   const middlePoint = coordinates[middleIndex];
 
   const [showPulse, setShowPulse] = useState(false);
+  const showPulseTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleShowPulse = useCallback(() => {
+    setShowPulse(true);
+  }, []);
 
   useEffect(() => {
-    if (!shouldAnimate) {
+    if (!shouldAnimate) return;
+
+    showPulseTimeoutRef.current = setTimeout(
+      handleShowPulse,
+      (startAnimationDelay || 0) * 1000
+    );
+
+    return () => {
+      if (showPulseTimeoutRef.current) clearTimeout(showPulseTimeoutRef.current);
       setShowPulse(false);
-      return;
-    }
+    };
+  }, [shouldAnimate, startAnimationDelay, handleShowPulse]);
 
-    const timeoutId = setTimeout(() => {
-      setShowPulse(true);
-    }, (startAnimationDelay || 0) * 1000);
-
-    return () => clearTimeout(timeoutId);
-  }, [shouldAnimate, startAnimationDelay]);
-
-  const [computedColor, setComputedColor] = useState(color);
-
-  useEffect(() => {
-    setComputedColor(getRGBA(color));
-  }, [color]);
+  const computedColor = useMemo(() => getRGBA(color), [color]);
 
   const getColorWithOpacity = useCallback(
     (opacity: number) => colorWithOpacity(computedColor, opacity),
@@ -163,7 +165,7 @@ export function LineChart({
       />
 
       {/* Multiple pulsing waves */}
-      {showPulse && (
+      {shouldAnimate && showPulse && (
         <>
           {[0, 1, 2].map((index) => (
             <motion.circle
@@ -207,22 +209,28 @@ export function NumberFlowCounter({
   const [currentIndex, setCurrentIndex] = useState(0);
   const currentValue = toolTipValues[currentIndex];
   const [showCounter, setShowCounter] = useState(false);
+  const counterTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleShowCounter = useCallback(() => {
+    setShowCounter(true);
+  }, []);
 
   useEffect(() => {
-    if (!shouldAnimate) {
+    if (!shouldAnimate) return;
+
+    counterTimeoutRef.current = setTimeout(
+      handleShowCounter,
+      (startAnimationDelay || 0) * 1000
+    );
+
+    return () => {
+      if (counterTimeoutRef.current) clearTimeout(counterTimeoutRef.current);
       setShowCounter(false);
-      return;
-    }
-
-    const timeoutId = setTimeout(() => {
-      setShowCounter(true);
-    }, (startAnimationDelay || 0) * 1000);
-
-    return () => clearTimeout(timeoutId);
-  }, [shouldAnimate, startAnimationDelay]);
+    };
+  }, [shouldAnimate, startAnimationDelay, handleShowCounter]);
 
   useEffect(() => {
-    if (!showCounter) return;
+    if (!shouldAnimate || !showCounter) return;
 
     const intervalId = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % toolTipValues.length);
@@ -231,12 +239,14 @@ export function NumberFlowCounter({
     return () => {
       if (intervalId) clearInterval(intervalId);
     };
-  }, [showCounter, toolTipValues.length]);
+  }, [shouldAnimate, showCounter, toolTipValues.length]);
+
+  const counterVisible = shouldAnimate && showCounter;
 
   return (
     <div
       className={`${
-        showCounter ? "opacity-100" : "opacity-0"
+        counterVisible ? "opacity-100" : "opacity-0"
       } transition-opacity duration-300 ease-in-out absolute top-32 left-[42%] -translate-x-1/2 text-sm bg-[#1A1B25] border border-white/[0.07] text-white px-4 py-1 rounded-full h-8 flex items-center justify-center font-mono shadow-[0px_1.1px_0px_0px_rgba(255,255,255,0.20)_inset,0px_4.4px_6.6px_0px_rgba(255,255,255,0.01)_inset,0px_2.2px_6.6px_0px_rgba(18,43,105,0.04),0px_1.1px_2.2px_0px_rgba(18,43,105,0.08),0px_0px_0px_1.1px_rgba(18,43,105,0.08)]`}
     >
       <NumberFlow
@@ -270,20 +280,9 @@ export function ThirdBentoAnimation({
 }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once });
-  const [shouldAnimate, setShouldAnimate] = useState(false);
-  const [computedColor, setComputedColor] = useState(color);
+  const shouldAnimate = isInView;
 
-  useEffect(() => {
-    setComputedColor(getRGBA(color));
-  }, [color]);
-
-  useEffect(() => {
-    if (isInView) {
-      setShouldAnimate(true);
-    } else {
-      setShouldAnimate(false);
-    }
-  }, [isInView]);
+  const computedColor = useMemo(() => getRGBA(color), [color]);
 
   return (
     <div

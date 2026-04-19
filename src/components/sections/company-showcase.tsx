@@ -24,7 +24,8 @@ export function CompanyShowcase() {
                 alt="logo"
                 width={100}
                 height={100}
-                className="object-contain"
+                className="max-h-full max-w-full object-contain"
+                style={{ width: "auto", height: "auto" }}
               />
             </div>
             <div className="transition-all hidden dark:flex duration-200 [cubic-bezier(0.165, 0.84, 0.44, 1)] translate-y-0 group-hover:-translate-y-4 duration-300 flex items-center justify-center w-full h-full">
@@ -33,7 +34,8 @@ export function CompanyShowcase() {
                 alt="logo"
                 width={100}
                 height={100}
-                className="object-contain"
+                className="max-h-full max-w-full object-contain"
+                style={{ width: "auto", height: "auto" }}
               />
             </div>
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-8 group-hover:translate-y-4 transition-all duration-300 ease-[cubic-bezier(0.165, 0.84, 0.44, 1)]">
@@ -56,14 +58,16 @@ export function CompanyShowcase() {
               alt="logo"
               width={100}
               height={100}
-              className="object-contain flex dark:hidden"
+              className="max-h-full max-w-full object-contain dark:hidden"
+              style={{ width: "auto", height: "auto" }}
             />
             <Image
               src={logo.logo_dark}
               alt="logo"
               width={100}
               height={100}
-              className="object-contain hidden dark:flex "
+              className="max-h-full max-w-full hidden object-contain dark:block"
+              style={{ width: "auto", height: "auto" }}
             />
           </div>
         ))}

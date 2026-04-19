@@ -42,6 +42,7 @@ export function FourthBentoAnimation({
   const containerRef = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(containerRef, { once });
   const [translateXValues, setTranslateXValues] = useState<number[]>([]);
+  const [containerWidth, setContainerWidth] = useState(0);
 
   const mouseX = useMotionValue(0);
   const smoothX = useSpring(mouseX, {
@@ -74,12 +75,12 @@ export function FourthBentoAnimation({
   useEffect(() => {
     const updateWidth = () => {
       if (containerRef.current) {
-        const containerWidth =
-          containerRef.current.getBoundingClientRect().width;
+        const width = containerRef.current.getBoundingClientRect().width;
+        setContainerWidth(width);
         const itemWidth = 250;
         const numberOfItems = 3;
         const totalItemsWidth = itemWidth * numberOfItems;
-        const availableSpace = containerWidth - totalItemsWidth;
+        const availableSpace = width - totalItemsWidth;
         const gap = availableSpace / (numberOfItems - 1);
 
         const newTranslateXValues = Array.from(
@@ -96,7 +97,6 @@ export function FourthBentoAnimation({
 
     window.addEventListener("resize", updateWidth);
 
-    // Cleanup event listener on component unmount
     return () => {
       window.removeEventListener("resize", updateWidth);
     };
@@ -227,10 +227,7 @@ export function FourthBentoAnimation({
               key={index}
               initial={{
                 opacity: 0,
-                x:
-                  index % 2 === 0
-                    ? -50
-                    : containerRef.current?.getBoundingClientRect().width || 0,
+                x: index % 2 === 0 ? -50 : containerWidth,
               }}
               animate={
                 isInView
@@ -240,11 +237,7 @@ export function FourthBentoAnimation({
                     }
                   : {
                       opacity: 0,
-                      x:
-                        index % 2 === 0
-                          ? -50
-                          : containerRef.current?.getBoundingClientRect()
-                              .width || 0,
+                      x: index % 2 === 0 ? -50 : containerWidth,
                     }
               }
               exit={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}

@@ -92,14 +92,16 @@ export function Navbar() {
                 width={90}
                 height={80}
                 alt="logo"
-                className="hidden dark:flex"
+                className="hidden h-auto w-auto dark:flex"
+                style={{ width: "auto", height: "auto" }}
               />
               <Image
                 src="/logo-white.png"
                 width={90}
                 height={80}
                 alt="logo"
-                className="dark:hidden"
+                className="h-auto w-auto dark:hidden"
+                style={{ width: "auto", height: "auto" }}
               />
             </Link>
             <div>
@@ -153,6 +155,8 @@ export function Navbar() {
                       width={150}
                       height={100}
                       alt="logo"
+                      className="h-auto w-auto"
+                      style={{ width: "auto", height: "auto" }}
                     />
                   </Link>
                   <button

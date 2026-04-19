@@ -1,6 +1,6 @@
 "use client";
 import { siteConfig } from "@/lib/config";
-import { useRef } from "react";
+import { useCallback, useMemo } from "react";
 
 import {
   Carousel,
@@ -8,9 +8,23 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+
 export function QuoteSection() {
   const { quoteSection } = siteConfig;
-  const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true  }));
+  const plugin = useMemo(
+    () => Autoplay({ delay: 2000, stopOnInteraction: true }),
+    []
+  );
+  const plugins = useMemo(() => [plugin], [plugin]);
+
+  const handleMouseEnter = useCallback(() => {
+    plugin.stop();
+  }, [plugin]);
+
+  const handleMouseLeave = useCallback(() => {
+    plugin.reset();
+  }, [plugin]);
+
   return (
     <section
       id="quote"
@@ -18,11 +32,10 @@ export function QuoteSection() {
     >
       <Carousel
         opts={{ loop: true }}
-        plugins={[plugin.current]}
+        plugins={plugins}
         className="w-full "
-        onMouseEnter={plugin.current.stop}
-        onMouseLeave={plugin.current.reset}
-        
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
         <CarouselContent>
           {quoteSection.map((quotes, index) => (

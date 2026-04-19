@@ -183,13 +183,10 @@ export const Feature = ({
     }
   }, [featureItems.length]);
 
-  // Handle image transition
-  useEffect(() => {
-    if (currentIndex !== previousIndex) {
-      setImageLoaded(false);
-      setPreviousIndex(currentIndex);
-    }
-  }, [currentIndex, previousIndex]);
+  if (currentIndex !== previousIndex) {
+    setPreviousIndex(currentIndex);
+    setImageLoaded(false);
+  }
 
   // Replace the existing image rendering section with this optimized version
   const renderMedia = () => {

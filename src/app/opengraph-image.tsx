@@ -30,6 +30,8 @@ export default async function Image() {
             background: "black",
           }}
         >
+          {/* next/image is not supported inside ImageResponse; raw img is expected for OG generation */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={`${baseUrl}/agent-template-og.png`}
             alt={alt}
